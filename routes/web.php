@@ -20,3 +20,4 @@ Route::get('login','SessionController@getLogin');
 
 # Registration Routes
 Route::get('register','RegistrationController@getRegister');
+Route::post('register','RegistrationController@postRegister')->name('register.post');
