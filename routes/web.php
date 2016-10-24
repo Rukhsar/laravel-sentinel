@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+# Authentication Routes
+Route::get('login','SessionController@getLogin');
+
+# Registration Routes
+Route::get('register','RegistrationController@getRegister');
