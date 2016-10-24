@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register.post') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('registration.post') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
@@ -23,6 +23,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <label for="last_name" class="col-md-4 control-label">Last Name</label>
 

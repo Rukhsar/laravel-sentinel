@@ -1,0 +1,1 @@
+To activate the account, go on <a href="{{ URL::to("activate/{$sentuser->getUserId()}/$code")}}"> link </a>
