@@ -66,4 +66,18 @@ class RegistrationController extends Controller
                 ->withErrors('Failed to register.');
             }
     }
+
+    public function activate($id, $code)
+    {
+        $sentuser = Sentinel::findById($id);
+        if ( ! Activation::complete($sentuser, $code))
+        {
+            return Redirect::to("login")
+                ->withErrors('Invalid or expired activation code.');
+        }
+        return Redirect::to('login')
+            ->withSuccess('Account activated.');
+    }
+
+
 }

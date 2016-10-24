@@ -21,3 +21,4 @@ Route::get('login','SessionController@getLogin');
 # Registration Routes
 Route::get('register','RegistrationController@getRegister');
 Route::post('registration','RegistrationController@postRegister')->name('registration.post');
+Route::get('activate/{id}/{code}', 'RegistrationController@activate');
