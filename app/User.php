@@ -2,8 +2,15 @@
 namespace App;
 //use Illuminate\Foundation\Auth\User as Authenticatable;
 use \Cartalyst\Sentinel\Users\EloquentUser;
-class User extends EloquentUser
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+
+class User extends EloquentUser implements CanResetPasswordContract
 {
+    use CanResetPassword;
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *

@@ -14,9 +14,10 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('post.email') }}">
                         {{ csrf_field() }}
 
+                        <p>Enter your email and we will send you a link to reset your password.</p>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 

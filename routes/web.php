@@ -24,3 +24,11 @@ Route::get('logout', 'SessionController@logout');
 Route::get('register','RegistrationController@getRegister');
 Route::post('registration','RegistrationController@postRegister')->name('registration.post');
 Route::get('activate/{id}/{code}', 'RegistrationController@activate');
+
+# Password Reset Routes
+Route::group(['middleware'=> 'guest'], function () {
+    Route::get('forgot_password','PasswordController@getEmail');
+    Route::post('forgot_password','PasswordController@postEmail')->name('post.email');
+    Route::get('password/reset/{token}','PasswordController@getReset');
+    Route::post('password/reset','PasswordController@postReset')->name('reset.password');
+});
