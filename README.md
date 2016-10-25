@@ -1,4 +1,4 @@
-### Laravel Sentinel
+### Laravel Sentinel (Not completed yet)
 A laravel starting app with Sentinel Authentication.
 
 #### Installation Instructions
