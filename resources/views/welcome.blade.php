@@ -65,16 +65,28 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-                <div class="top-right links">
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                </div>
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+    <div class="flex-center position-ref full-height">
+        @if (!Sentinel::check())
+            <div class="top-right links">
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+            </div>
+        @else
+            <div class="top-right links">
+                @if (Sentinel::check() && Sentinel::inRole('admin'))
+                    <a href="{{ url('/admin') }}">Admin</a>
+                @endif
+                @if (Sentinel::check() && Sentinel::inRole('user'))
+                    <a href="{{ url('/customer') }}">Customer</a>
+                @endif
+                <a href="{{ url('/logout') }}">Logout</a>
+            </div>
+        @endif
+        <div class="content">
+            <div class="title m-b-md">
+                Sentinel Authentication
             </div>
         </div>
+    </div>
     </body>
 </html>

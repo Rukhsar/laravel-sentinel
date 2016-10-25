@@ -76,4 +76,10 @@ class SessionController extends Controller
             ->withInput()
             ->withErrors($errors);
     }
+
+    public function logout()
+    {
+        Sentinel::logout();
+        return Redirect::intended('/');
+    }
 }
